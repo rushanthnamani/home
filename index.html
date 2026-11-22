@@ -3,65 +3,99 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Varnika – Colour, pattern and illustration</title>
-<meta name="description" content="Varnika is a creative studio making illustration, pattern and brand design.">
+<title>Rushanth Namani – Senior Microsoft 365 Consultant</title>
+<meta name="description" content="Senior M365 consultant with 8 years of experience in Exchange Online, SharePoint, Teams, Copilot and Google Workspace to Microsoft 365 migrations.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#1b1646; --paper:#f7f5ff; --marigold:#f6a81c; --magenta:#d6336c; --teal:#12b5a6; --violet:#6c4ee3;
-  --head:"Bricolage Grotesque","Trebuchet MS",sans-serif; --body:"DM Sans",system-ui,sans-serif;
+  --navy:#0e1a2f; --navy2:#16294a; --mist:#f2f6fc; --azure:#3b74ff; --teal:#12c2b0; --amber:#ffb429; --coral:#ff5e78; --line:#d9e2f0;
+  --head:"Sora","Trebuchet MS",sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.65;font-size:1.05rem}
+body{font-family:var(--body);background:var(--mist);color:var(--navy);line-height:1.65}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--marigold);outline-offset:3px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
-h1,h2,h3{font-family:var(--head);line-height:1.05;letter-spacing:-.02em}
-
-/* header + hero */
-.hero{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
-nav{display:flex;justify-content:space-between;align-items:center;padding:1.4rem 0}
-.logo{font-family:var(--head);font-weight:800;font-size:1.4rem;text-decoration:none}
-nav ul{display:flex;gap:1.6rem;list-style:none;padding:0}
-nav a{text-decoration:none;opacity:.85}
-nav a:hover{opacity:1;text-decoration:underline;text-decoration-color:var(--marigold);text-underline-offset:6px}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:2rem;padding:2.5rem 0 5rem}
-.hero h1{font-size:clamp(2.8rem,7vw,5.2rem);font-weight:800}
-.hero p{max-width:34ch;margin:1.4rem 0 2rem;opacity:.85;font-size:1.15rem}
-.btn{display:inline-block;background:var(--marigold);color:var(--ink);font-weight:500;padding:.85rem 1.6rem;border-radius:999px;text-decoration:none}
-.btn:hover{background:#ffc04d}
-.btn.ghost{background:transparent;color:var(--paper);border:2px solid var(--paper);margin-left:.6rem}
-.btn.ghost:hover{background:var(--paper);color:var(--ink)}
-.mandala{width:100%;max-width:460px;justify-self:center;animation:turn 90s linear infinite}
-@keyframes turn{to{transform:rotate(360deg)}}
-
-/* sections */
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--head);letter-spacing:-.02em;line-height:1.1}
+h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:.6rem}
+.lead{max-width:60ch;opacity:.8;margin-bottom:2.5rem}
 section{padding:5rem 0}
-h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem}
-.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:3rem;align-items:center}
-.about p+p{margin-top:1rem}
-.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2rem}
-.card{border-radius:28px 28px 28px 6px;overflow:hidden;background:#fff;box-shadow:0 10px 30px rgba(27,22,70,.12)}
-.card svg{display:block;width:100%;height:auto}
-.card div{padding:1.2rem 1.4rem 1.5rem}
-.card h3{font-size:1.35rem;margin-bottom:.3rem}
-.card p{font-size:.97rem;opacity:.8}
-.palette{display:flex;gap:.6rem;margin-top:1.5rem}
-.palette i{width:44px;height:44px;border-radius:50%;display:block}
-.contact{background:linear-gradient(135deg,var(--violet),var(--magenta));color:#fff;text-align:center;border-radius:40px;padding:4rem 1.5rem;margin-bottom:4rem}
-.contact p{margin:0 auto 1.8rem;max-width:36ch}
-.contact .btn{background:#fff}
-footer{text-align:center;padding:0 0 2.5rem;font-size:.9rem;opacity:.7}
 
-@media (max-width:760px){
-  .hero-grid,.about{grid-template-columns:1fr}
-  .mandala{max-width:300px;order:-1}
-  nav ul{gap:1rem;font-size:.95rem}
+/* hero */
+.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(circle at 85% 20%,rgba(59,116,255,.35),transparent 45%),
+  radial-gradient(circle at 10% 90%,rgba(18,194,176,.18),transparent 40%);}
+.hero .wrap{position:relative}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.4rem 0}
+.mark{font-family:var(--head);font-weight:800;text-decoration:none;display:flex;gap:.6rem;align-items:center}
+.mark b{display:grid;place-items:center;width:34px;height:34px;border-radius:10px 10px 10px 2px;background:var(--azure);font-size:.95rem}
+nav ul{display:flex;gap:1.5rem;list-style:none;padding:0;font-size:.95rem}
+nav ul a{text-decoration:none;opacity:.8}
+nav ul a:hover{opacity:1;text-decoration:underline;text-decoration-color:var(--amber);text-underline-offset:6px}
+.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:2rem;align-items:center;padding:2rem 0 5rem}
+.hero h1{font-size:clamp(2.6rem,6.2vw,4.6rem);font-weight:800}
+.hero .role{color:var(--teal);font-family:var(--head);font-weight:500;margin:1rem 0}
+.hero p.sum{max-width:44ch;opacity:.85;margin-bottom:1.8rem}
+.btn{display:inline-block;padding:.85rem 1.5rem;border-radius:999px;background:var(--amber);color:var(--navy);font-weight:500;text-decoration:none}
+.btn:hover{background:#ffc860}
+.btn.ghost{background:transparent;border:2px solid rgba(255,255,255,.7);color:#fff;margin-left:.5rem}
+.btn.ghost:hover{background:#fff;color:var(--navy)}
+.flow{width:100%;height:auto}
+.flow text{font-family:var(--body);font-size:13px;fill:#fff}
+.flow .sm{font-size:11px;fill:#9fb4d6}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:-2.6rem;position:relative}
+.stat{background:#fff;border-radius:20px 20px 20px 4px;padding:1.2rem 1.3rem;box-shadow:0 12px 30px rgba(14,26,47,.12)}
+.stat strong{display:block;font-family:var(--head);font-size:2rem}
+.stat span{font-size:.9rem;opacity:.75}
+
+/* timeline */
+.tl{position:relative;margin-left:.6rem;padding-left:2rem;border-left:3px solid var(--line)}
+.job{position:relative;margin-bottom:2.2rem}
+.job::before{content:"";position:absolute;left:calc(-2rem - 9px);top:.35rem;width:15px;height:15px;border-radius:50%;background:var(--c,var(--azure));border:3px solid var(--mist)}
+.job h3{font-size:1.25rem}
+.meta{font-size:.9rem;opacity:.7;margin:.2rem 0 .6rem}
+.job ul{padding-left:1.1rem}
+.job li{margin-bottom:.3rem;max-width:80ch}
+.tag{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.1rem .7rem;font-size:.85rem;margin:.2rem .3rem 0 0}
+
+/* highlights */
+.hl{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.5rem}
+.card{background:#fff;border-radius:28px 28px 28px 6px;overflow:hidden;box-shadow:0 12px 30px rgba(14,26,47,.1)}
+.card svg{display:block;width:100%;height:auto}
+.card div{padding:1.3rem 1.5rem 1.6rem}
+.card h3{font-size:1.25rem;margin-bottom:.4rem}
+.card p{font-size:.97rem;opacity:.8}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
+.sk{border-top:5px solid var(--c);background:#fff;border-radius:6px 6px 22px 22px;padding:1.3rem 1.4rem}
+.sk h3{font-size:1.1rem;margin-bottom:.7rem}
+.sk span{display:inline-block;background:var(--mist);border-radius:8px;padding:.1rem .6rem;font-size:.88rem;margin:0 .3rem .4rem 0}
+
+/* certs */
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1.5rem}
+.cert{display:flex;gap:.9rem;align-items:center;background:#fff;border-radius:18px;padding:1rem}
+.cert svg{flex:none}
+.cert b{font-family:var(--head);display:block;font-size:1.05rem}
+.cert small{opacity:.75}
+.more{font-size:.95rem;opacity:.8;max-width:80ch}
+
+/* contact */
+.contact{background:linear-gradient(135deg,var(--azure),#6a4cff 60%,var(--coral));color:#fff;border-radius:40px;padding:4rem 1.5rem;text-align:center;margin-bottom:4rem}
+.contact p{max-width:44ch;margin:.5rem auto 1.8rem}
+.contact .btn{background:#fff;margin:.3rem}
+footer{text-align:center;font-size:.9rem;opacity:.65;padding-bottom:2.5rem}
+
+@media (max-width:820px){
+  .hero-grid{grid-template-columns:1fr}
+  nav ul{gap:.9rem;font-size:.88rem}
 }
-@media (prefers-reduced-motion:reduce){.mandala{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -69,74 +103,127 @@ footer{text-align:center;padding:0 0 2.5rem;font-size:.9rem;opacity:.7}
 <header class="hero">
   <div class="wrap">
     <nav aria-label="Main">
-      <a class="logo" href="#top">Varnika</a>
+      <a class="mark" href="#top"><b>RN</b>Rushanth Namani</a>
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#work">Highlights</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+
     <div class="hero-grid" id="top">
       <div>
-        <h1>Every idea needs its colours.</h1>
-        <p>Varnika designs illustrations, patterns and brand identities for people who want to look like nobody else.</p>
-        <a class="btn" href="#work">See the work</a>
-        <a class="btn ghost" href="#contact">Say hello</a>
+        <h1>Moving whole companies into Microsoft 365.</h1>
+        <p class="role">Senior M365 Consultant · Hyderabad, India</p>
+        <p class="sum">Eight years across Exchange Online, SharePoint, Teams and Copilot. I lead Google Workspace to Microsoft 365 migrations and build Copilot Studio agents that cut service desk load.</p>
+        <a class="btn" href="#contact">Get in touch</a>
+        <a class="btn ghost" href="#experience">See my experience</a>
       </div>
 
-      <!-- Hero graphic: layered petal mandala -->
-      <svg class="mandala" viewBox="-200 -200 400 400" role="img" aria-label="Decorative circular pattern of overlapping petals in marigold, magenta, teal and violet">
+      <!-- Hero graphic: migration pipeline -->
+      <svg class="flow" viewBox="0 0 520 440" role="img" aria-label="Diagram showing data flowing from Google Workspace through a migration hub into Exchange, SharePoint, OneDrive, Teams and Copilot">
         <defs>
-          <path id="petalL" d="M0 0C-38 -50 -30 -120 0 -170C30 -120 38 -50 0 0Z"/>
-          <path id="petalS" d="M0 0C-22 -30 -18 -70 0 -100C18 -70 22 -30 0 0Z"/>
+          <linearGradient id="hub" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b74ff"/><stop offset="1" stop-color="#12c2b0"/></linearGradient>
         </defs>
-        <circle r="190" fill="none" stroke="#6c4ee3" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
-        <g fill="#6c4ee3" opacity=".9">
-          <use href="#petalL" transform="rotate(0)"/><use href="#petalL" transform="rotate(45)"/>
-          <use href="#petalL" transform="rotate(90)"/><use href="#petalL" transform="rotate(135)"/>
-          <use href="#petalL" transform="rotate(180)"/><use href="#petalL" transform="rotate(225)"/>
-          <use href="#petalL" transform="rotate(270)"/><use href="#petalL" transform="rotate(315)"/>
+        <g fill="none" stroke="#2c4572" stroke-width="2" stroke-dasharray="4 6">
+          <path d="M120 222H206"/>
+          <path d="M294 222C340 222 340 62 380 62"/>
+          <path d="M294 222C335 222 340 142 380 142"/>
+          <path d="M294 222H380"/>
+          <path d="M294 222C335 222 340 302 380 302"/>
+          <path d="M294 222C340 222 340 382 380 382"/>
         </g>
-        <g fill="#d6336c" opacity=".92">
-          <use href="#petalL" transform="rotate(22.5) scale(.82)"/><use href="#petalL" transform="rotate(67.5) scale(.82)"/>
-          <use href="#petalL" transform="rotate(112.5) scale(.82)"/><use href="#petalL" transform="rotate(157.5) scale(.82)"/>
-          <use href="#petalL" transform="rotate(202.5) scale(.82)"/><use href="#petalL" transform="rotate(247.5) scale(.82)"/>
-          <use href="#petalL" transform="rotate(292.5) scale(.82)"/><use href="#petalL" transform="rotate(337.5) scale(.82)"/>
+        <!-- moving data packets -->
+        <g id="dots">
+          <circle r="5" fill="#ffb429"><animateMotion dur="2s" repeatCount="indefinite" path="M120 222H206"/></circle>
+          <circle r="5" fill="#ffb429"><animateMotion dur="2s" begin="1s" repeatCount="indefinite" path="M120 222H206"/></circle>
+          <circle r="4.5" fill="#12c2b0"><animateMotion dur="2.4s" repeatCount="indefinite" path="M294 222C340 222 340 62 380 62"/></circle>
+          <circle r="4.5" fill="#12c2b0"><animateMotion dur="2.4s" begin=".5s" repeatCount="indefinite" path="M294 222C335 222 340 142 380 142"/></circle>
+          <circle r="4.5" fill="#12c2b0"><animateMotion dur="2.4s" begin="1s" repeatCount="indefinite" path="M294 222H380"/></circle>
+          <circle r="4.5" fill="#12c2b0"><animateMotion dur="2.4s" begin="1.5s" repeatCount="indefinite" path="M294 222C335 222 340 302 380 302"/></circle>
+          <circle r="4.5" fill="#12c2b0"><animateMotion dur="2.4s" begin="2s" repeatCount="indefinite" path="M294 222C340 222 340 382 380 382"/></circle>
         </g>
-        <g fill="#12b5a6">
-          <use href="#petalS" transform="rotate(0)"/><use href="#petalS" transform="rotate(30)"/>
-          <use href="#petalS" transform="rotate(60)"/><use href="#petalS" transform="rotate(90)"/>
-          <use href="#petalS" transform="rotate(120)"/><use href="#petalS" transform="rotate(150)"/>
-          <use href="#petalS" transform="rotate(180)"/><use href="#petalS" transform="rotate(210)"/>
-          <use href="#petalS" transform="rotate(240)"/><use href="#petalS" transform="rotate(270)"/>
-          <use href="#petalS" transform="rotate(300)"/><use href="#petalS" transform="rotate(330)"/>
+        <!-- source -->
+        <rect x="10" y="190" width="110" height="64" rx="16" fill="#16294a" stroke="#ff5e78" stroke-width="2"/>
+        <text x="65" y="218" text-anchor="middle">Google</text>
+        <text x="65" y="236" text-anchor="middle">Workspace</text>
+        <!-- hub -->
+        <circle cx="250" cy="222" r="56" fill="none" stroke="#3b74ff" stroke-opacity=".35" stroke-width="2"/>
+        <circle cx="250" cy="222" r="44" fill="url(#hub)"/>
+        <text x="250" y="219" text-anchor="middle" style="font-weight:500">Migrate</text>
+        <text x="250" y="236" text-anchor="middle" class="sm" style="fill:#fff;opacity:.85">DryvIQ · Cloudiway</text>
+        <!-- targets -->
+        <g>
+          <rect x="380" y="40" width="130" height="44" rx="14" fill="#16294a" stroke="#3b74ff" stroke-width="2"/><text x="445" y="67" text-anchor="middle">Exchange Online</text>
+          <rect x="380" y="120" width="130" height="44" rx="14" fill="#16294a" stroke="#12c2b0" stroke-width="2"/><text x="445" y="147" text-anchor="middle">SharePoint</text>
+          <rect x="380" y="200" width="130" height="44" rx="14" fill="#16294a" stroke="#ffb429" stroke-width="2"/><text x="445" y="227" text-anchor="middle">OneDrive</text>
+          <rect x="380" y="280" width="130" height="44" rx="14" fill="#16294a" stroke="#6a4cff" stroke-width="2"/><text x="445" y="307" text-anchor="middle">Teams</text>
+          <rect x="380" y="360" width="130" height="44" rx="14" fill="#16294a" stroke="#ff5e78" stroke-width="2"/><text x="445" y="387" text-anchor="middle">Copilot</text>
         </g>
-        <circle r="34" fill="#f6a81c"/>
-        <circle r="18" fill="#1b1646"/>
-        <circle r="7" fill="#f6a81c"/>
+        <text x="65" y="290" text-anchor="middle" class="sm">Source tenant</text>
+        <text x="445" y="428" text-anchor="middle" class="sm">Microsoft 365 tenant</text>
       </svg>
     </div>
   </div>
 </header>
 
 <main>
-  <section id="about">
-    <div class="wrap about">
-      <!-- About graphic: abstract portrait-style shapes -->
-      <svg viewBox="0 0 300 300" role="img" aria-label="Abstract illustration of overlapping colour shapes">
-        <rect width="300" height="300" rx="150" fill="#f6a81c"/>
-        <path d="M0 210C60 160 120 250 180 200S270 170 300 200V300H0Z" fill="#12b5a6"/>
-        <circle cx="105" cy="115" r="52" fill="#d6336c"/>
-        <circle cx="185" cy="95" r="34" fill="#6c4ee3"/>
-        <path d="M150 150l22 40h-44z" fill="#1b1646"/>
-        <circle cx="228" cy="170" r="12" fill="#fff"/>
-      </svg>
-      <div>
-        <h2>The name means "colour".</h2>
-        <p>Varnika comes from <em>varna</em>, the old word for colour. It is how the studio works: start with a palette, then let shape and pattern follow.</p>
-        <p>Projects range from book covers and packaging to textile prints and murals. Each one is drawn by hand first, then refined on screen.</p>
-        <div class="palette" aria-label="Studio colours">
-          <i style="background:#1b1646"></i><i style="background:#6c4ee3"></i><i style="background:#d6336c"></i><i style="background:#f6a81c"></i><i style="background:#12b5a6"></i>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><strong>8 yrs</strong><span>in Microsoft 365</span></div>
+      <div class="stat"><strong>3</strong><span>global clients: Microsoft, Electrolux, Vialto</span></div>
+      <div class="stat"><strong>4</strong><span>Microsoft certifications</span></div>
+      <div class="stat"><strong>0</strong><span>data loss on migrations</span></div>
+    </div>
+  </div>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <p class="lead">From front-line support to leading enterprise migrations and Copilot rollouts.</p>
+      <div class="tl">
+        <div class="job" style="--c:var(--coral)">
+          <h3>Senior Engineering Lead · Persistent Systems</h3>
+          <div class="meta">December 2025 – Present · Clients: Vialto Partners, Bounteous, Microsoft</div>
+          <ul>
+            <li>Run end-to-end Google Workspace to Microsoft 365 migrations with DryvIQ and Cloudiway, including batches, delta syncs and coexistence.</li>
+            <li>Automate and validate migration tasks with Microsoft Graph API, Entra app registrations and PowerShell.</li>
+            <li>Build Copilot Studio agents for readiness assessments, migration FAQs and runbook-based knowledge, reducing Service Desk workload.</li>
+            <li>Manage Exchange Online mail flow, DLP, transport rules, spam filtering and encryption.</li>
+          </ul>
+        </div>
+        <div class="job" style="--c:var(--amber)">
+          <h3>Lead M365 Consultant · Tata Consultancy Services</h3>
+          <div class="meta">October 2024 – November 2025 · Client: Electrolux</div>
+          <ul>
+            <li>Led the organisation-wide Microsoft 365 Copilot rollout: licensing, security configuration and user readiness.</li>
+            <li>Administered Exchange Online, SharePoint Online and OneDrive, and created Purview eDiscovery cases for former users.</li>
+            <li>Mentored junior team members on M365 best practices and troubleshooting.</li>
+          </ul>
+        </div>
+        <div class="job" style="--c:var(--teal)">
+          <h3>Analyst I, M365 In-App Team · DXC Technology</h3>
+          <div class="meta">January 2024 – September 2024 · Client: Microsoft Corporation</div>
+          <ul>
+            <li>Acted as subject matter expert for Exchange Online, SharePoint, OneDrive and Teams.</li>
+            <li>Worked with Microsoft product teams and QA, using Azure DevOps to manage in-app feedback and feature requests.</li>
+          </ul>
+        </div>
+        <div class="job" style="--c:var(--azure)">
+          <h3>Analyst II, M365 Operations · DXC Technology</h3>
+          <div class="meta">September 2021 – January 2024</div>
+          <ul>
+            <li>Gave Tier-II/III support for Outlook, Exchange Online, Azure AD and Office 365, and managed devices with Intune.</li>
+            <li>Wrote PowerShell and batch scripts that automated repetitive admin tasks.</li>
+          </ul>
+        </div>
+        <div class="job" style="--c:#6a4cff">
+          <h3>Earlier roles</h3>
+          <div class="meta">2018 – 2021</div>
+          <span class="tag">Technical Coordinator · Platinus Technologies</span>
+          <span class="tag">IT Support · Nova Digi Smart Services (NSEIT)</span>
+          <span class="tag">Technical Support Executive · Milaan Group</span>
         </div>
       </div>
     </div>
@@ -144,65 +231,91 @@ footer{text-align:center;padding:0 0 2.5rem;font-size:.9rem;opacity:.7}
 
   <section id="work" style="padding-top:0">
     <div class="wrap">
-      <h2>Selected work</h2>
-      <div class="work-grid">
+      <h2>Highlights</h2>
+      <p class="lead">Three kinds of work I'm most often brought in for.</p>
+      <div class="hl">
 
         <article class="card">
-          <svg viewBox="0 0 300 220" role="img" aria-label="Wave pattern artwork">
-            <rect width="300" height="220" fill="#12b5a6"/>
-            <g fill="none" stroke-width="10" stroke-linecap="round">
-              <path d="M-10 50Q40 10 90 50T190 50T310 50" stroke="#1b1646"/>
-              <path d="M-10 90Q40 50 90 90T190 90T310 90" stroke="#f7f5ff"/>
-              <path d="M-10 130Q40 90 90 130T190 130T310 130" stroke="#f6a81c"/>
-              <path d="M-10 170Q40 130 90 170T190 170T310 170" stroke="#d6336c"/>
-            </g>
+          <svg viewBox="0 0 320 190" role="img" aria-label="Two clouds connected by arrows">
+            <rect width="320" height="190" fill="#16294a"/>
+            <g fill="#ff5e78"><circle cx="70" cy="95" r="24"/><circle cx="98" cy="85" r="30"/><circle cx="126" cy="98" r="22"/><rect x="48" y="95" width="100" height="26" rx="13"/></g>
+            <g fill="#3b74ff"><circle cx="196" cy="95" r="24"/><circle cx="224" cy="85" r="30"/><circle cx="252" cy="98" r="22"/><rect x="174" y="95" width="100" height="26" rx="13"/></g>
+            <path d="M150 100h24m-8-8l8 8-8 8" fill="none" stroke="#ffb429" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <div><h3>Tidewater</h3><p>A textile print inspired by monsoon rain on a harbour.</p></div>
+          <div><h3>Workspace to Microsoft 365</h3><p>Batch management, delta syncs and coexistence, with throttling and permissions tuned so data arrives complete.</p></div>
         </article>
 
         <article class="card">
-          <svg viewBox="0 0 300 220" role="img" aria-label="Geometric sun and hills artwork">
-            <rect width="300" height="220" fill="#d6336c"/>
-            <circle cx="150" cy="110" r="70" fill="#f6a81c"/>
-            <circle cx="150" cy="110" r="42" fill="#d6336c"/>
-            <circle cx="150" cy="110" r="20" fill="#f7f5ff"/>
-            <path d="M0 220V170L70 140L130 175L200 130L300 180V220Z" fill="#1b1646"/>
+          <svg viewBox="0 0 320 190" role="img" aria-label="Chat bubbles with a spark">
+            <rect width="320" height="190" fill="#12c2b0"/>
+            <rect x="40" y="35" width="170" height="60" rx="22" fill="#0e1a2f"/>
+            <rect x="60" y="55" width="90" height="8" rx="4" fill="#12c2b0"/><rect x="60" y="72" width="60" height="8" rx="4" fill="#3b74ff"/>
+            <rect x="110" y="105" width="170" height="52" rx="22" fill="#fff"/>
+            <rect x="130" y="123" width="100" height="8" rx="4" fill="#0e1a2f"/><rect x="130" y="138" width="50" height="8" rx="4" fill="#ffb429"/>
+            <path d="M265 30l6 16 16 6-16 6-6 16-6-16-16-6 16-6z" fill="#ffb429"/>
           </svg>
-          <div><h3>Suryodaya</h3><p>Packaging for a small-batch spice brand, built from concentric suns.</p></div>
+          <div><h3>Copilot Studio agents</h3><p>Readiness, FAQ and knowledge agents built on runbooks and SOPs, with clear scope limits and human escalation.</p></div>
         </article>
 
         <article class="card">
-          <svg viewBox="0 0 300 220" role="img" aria-label="Grid of coloured tiles artwork">
-            <rect width="300" height="220" fill="#f7f5ff"/>
-            <g>
-              <rect x="20" y="20" width="80" height="80" rx="40" fill="#6c4ee3"/>
-              <rect x="110" y="20" width="80" height="80" fill="#f6a81c"/>
-              <path d="M200 100V20a80 80 0 0 1 80 80Z" fill="#12b5a6"/>
-              <path d="M20 200V120h80a80 80 0 0 1-80 80Z" fill="#d6336c"/>
-              <rect x="110" y="120" width="80" height="80" rx="40" fill="#1b1646"/>
-              <rect x="200" y="120" width="80" height="80" fill="#6c4ee3"/>
-              <circle cx="240" cy="160" r="22" fill="#f7f5ff"/>
-            </g>
+          <svg viewBox="0 0 320 190" role="img" aria-label="Shield with a check mark">
+            <rect width="320" height="190" fill="#3b74ff"/>
+            <path d="M160 24l62 22v42c0 38-26 66-62 80-36-14-62-42-62-80V46z" fill="#0e1a2f"/>
+            <path d="M160 40l46 16v32c0 28-19 49-46 60-27-11-46-32-46-60V56z" fill="#16294a"/>
+            <path d="M138 96l16 16 30-34" fill="none" stroke="#ffb429" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <div><h3>Tile Alphabet</h3><p>A set of 26 geometric letters for a children's learning app.</p></div>
+          <div><h3>Email security and compliance</h3><p>DLP policies, transport rules, spam filtering, encryption and Purview eDiscovery for enterprise tenants.</p></div>
         </article>
 
       </div>
+    </div>
+  </section>
+
+  <section id="skills" style="padding-top:0">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <p class="lead">Tools I use day to day.</p>
+      <div class="skills">
+        <div class="sk" style="--c:var(--azure)"><h3>Microsoft 365</h3><span>Exchange Online</span><span>SharePoint Online</span><span>OneDrive</span><span>Teams</span><span>M365 Copilot</span><span>Copilot Studio</span><span>AI agents</span><span>Power Platform</span></div>
+        <div class="sk" style="--c:var(--coral)"><h3>Identity and security</h3><span>Azure AD</span><span>Intune</span><span>DLP</span><span>Transport rules</span><span>Spam filtering</span><span>Email encryption</span><span>Entra app registrations</span><span>Purview eDiscovery</span></div>
+        <div class="sk" style="--c:var(--teal)"><h3>Migration</h3><span>DryvIQ</span><span>Cloudiway</span><span>Google Workspace</span><span>Azure AD Connect</span><span>Tenant administration</span></div>
+        <div class="sk" style="--c:var(--amber)"><h3>Development and automation</h3><span>PowerShell</span><span>Microsoft Graph API</span><span>REST APIs</span><span>Batch scripting</span><span>Log Analytics</span><span>SPFx</span><span>React</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <h2>Certifications</h2>
+      <p class="lead">Microsoft credentials plus training in AI and security.</p>
+      <div class="certs">
+        <div class="cert"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3l18 7v13c0 11-8 19-18 22C14 42 6 34 6 23V10z" fill="#3b74ff"/><path d="M16 24l6 6 11-12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>MS-102</b><small>Microsoft 365 Administrator</small></div></div>
+        <div class="cert"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3l18 7v13c0 11-8 19-18 22C14 42 6 34 6 23V10z" fill="#12c2b0"/><path d="M16 24l6 6 11-12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>AZ-104</b><small>Azure Administrator Associate</small></div></div>
+        <div class="cert"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3l18 7v13c0 11-8 19-18 22C14 42 6 34 6 23V10z" fill="#ffb429"/><path d="M16 24l6 6 11-12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>AZ-900</b><small>Azure Fundamentals</small></div></div>
+        <div class="cert"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3l18 7v13c0 11-8 19-18 22C14 42 6 34 6 23V10z" fill="#ff5e78"/><path d="M16 24l6 6 11-12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>MS-900</b><small>Microsoft 365 Fundamentals</small></div></div>
+      </div>
+      <p class="more">Also: Generative AI Foundations (UpGrad), Prompt Design in Vertex AI (Google), AI for Business Leaders, Essentials of Ethical Hacking (EC-Council), WorkshopPLUS Exchange Online Troubleshooting, WorkshopPLUS Windows Advanced Troubleshooting. Education: B.Tech in Computer Science and Engineering, 2014–2020.</p>
     </div>
   </section>
 
   <section id="contact" style="padding-top:0">
     <div class="wrap">
       <div class="contact">
-        <h2>Have a project in mind?</h2>
-        <p>Tell Varnika what you are making and when you need it. Replies come within two working days.</p>
-        <a class="btn" href="mailto:hello@varnika.example">Email Varnika</a>
+        <h2>Planning a migration or a Copilot rollout?</h2>
+        <p>Send me a short note about your tenant and timeline.</p>
+        <a class="btn" href="mailto:mail.rushanth@gmail.com">Email me</a>
+        <a class="btn" href="https://linkedin.com/in/rushanth-namani">LinkedIn</a>
       </div>
     </div>
   </section>
 </main>
 
-<footer>© 2026 Varnika. All rights reserved.</footer>
+<footer>© 2026 Rushanth Namani · Hyderabad, India</footer>
 
+<script>
+if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  var d = document.getElementById("dots"); if (d) d.remove();
+}
+</script>
 </body>
 </html>
