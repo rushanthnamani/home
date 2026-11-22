@@ -1,366 +1,208 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Indushree Function Hall</title>
-
+<title>Varnika – Colour, pattern and illustration</title>
+<meta name="description" content="Varnika is a creative studio making illustration, pattern and brand design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
-body{
-margin:0;
-font-family:Segoe UI,sans-serif;
-background:#f4f5f7;
+:root{
+  --ink:#1b1646; --paper:#f7f5ff; --marigold:#f6a81c; --magenta:#d6336c; --teal:#12b5a6; --violet:#6c4ee3;
+  --head:"Bricolage Grotesque","Trebuchet MS",sans-serif; --body:"DM Sans",system-ui,sans-serif;
 }
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.65;font-size:1.05rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--marigold);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--head);line-height:1.05;letter-spacing:-.02em}
 
-.header{
-background:#5F259F;
-color:white;
-padding:15px;
-font-size:24px;
-font-weight:bold;
-text-align:center;
-}
+/* header + hero */
+.hero{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.4rem 0}
+.logo{font-family:var(--head);font-weight:800;font-size:1.4rem;text-decoration:none}
+nav ul{display:flex;gap:1.6rem;list-style:none;padding:0}
+nav a{text-decoration:none;opacity:.85}
+nav a:hover{opacity:1;text-decoration:underline;text-decoration-color:var(--marigold);text-underline-offset:6px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:2rem;padding:2.5rem 0 5rem}
+.hero h1{font-size:clamp(2.8rem,7vw,5.2rem);font-weight:800}
+.hero p{max-width:34ch;margin:1.4rem 0 2rem;opacity:.85;font-size:1.15rem}
+.btn{display:inline-block;background:var(--marigold);color:var(--ink);font-weight:500;padding:.85rem 1.6rem;border-radius:999px;text-decoration:none}
+.btn:hover{background:#ffc04d}
+.btn.ghost{background:transparent;color:var(--paper);border:2px solid var(--paper);margin-left:.6rem}
+.btn.ghost:hover{background:var(--paper);color:var(--ink)}
+.mandala{width:100%;max-width:460px;justify-self:center;animation:turn 90s linear infinite}
+@keyframes turn{to{transform:rotate(360deg)}}
 
-.container{
-padding:12px;
-}
+/* sections */
+section{padding:5rem 0}
+h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:3rem;align-items:center}
+.about p+p{margin-top:1rem}
+.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2rem}
+.card{border-radius:28px 28px 28px 6px;overflow:hidden;background:#fff;box-shadow:0 10px 30px rgba(27,22,70,.12)}
+.card svg{display:block;width:100%;height:auto}
+.card div{padding:1.2rem 1.4rem 1.5rem}
+.card h3{font-size:1.35rem;margin-bottom:.3rem}
+.card p{font-size:.97rem;opacity:.8}
+.palette{display:flex;gap:.6rem;margin-top:1.5rem}
+.palette i{width:44px;height:44px;border-radius:50%;display:block}
+.contact{background:linear-gradient(135deg,var(--violet),var(--magenta));color:#fff;text-align:center;border-radius:40px;padding:4rem 1.5rem;margin-bottom:4rem}
+.contact p{margin:0 auto 1.8rem;max-width:36ch}
+.contact .btn{background:#fff}
+footer{text-align:center;padding:0 0 2.5rem;font-size:.9rem;opacity:.7}
 
-.cards{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-margin-bottom:15px;
+@media (max-width:760px){
+  .hero-grid,.about{grid-template-columns:1fr}
+  .mandala{max-width:300px;order:-1}
+  nav ul{gap:1rem;font-size:.95rem}
 }
-
-.card{
-background:white;
-padding:15px;
-border-radius:15px;
-box-shadow:0 2px 8px rgba(0,0,0,.1);
-}
-
-.card h3{
-margin:0;
-font-size:14px;
-color:#555;
-}
-
-.card div{
-font-size:22px;
-font-weight:bold;
-color:#5F259F;
-margin-top:8px;
-}
-
-.form{
-background:white;
-padding:15px;
-border-radius:15px;
-margin-bottom:15px;
-}
-
-input,select{
-width:100%;
-padding:10px;
-margin-bottom:10px;
-border-radius:8px;
-border:1px solid #ccc;
-box-sizing:border-box;
-}
-
-button{
-background:#5F259F;
-color:white;
-border:none;
-padding:10px;
-border-radius:8px;
-width:100%;
-font-size:15px;
-}
-
-.booking{
-background:white;
-padding:12px;
-margin-top:10px;
-border-radius:12px;
-box-shadow:0 2px 6px rgba(0,0,0,.08);
-}
-
-.smallbtn{
-width:auto;
-padding:6px 10px;
-margin-top:8px;
-margin-right:5px;
-}
-
-.search{
-margin-bottom:15px;
-}
+@media (prefers-reduced-motion:reduce){.mandala{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
-
 <body>
 
-<div class="header">
-🏛️ ఇందుశ్రీ ఫంక్షన్ హాల్
-</div>
-
-<div class="container">
-
-<div class="cards">
-
-<div class="card">
-<h3>Total Bookings</h3>
-<div id="totalBookings">0</div>
-</div>
-
-<div class="card">
-<h3>Total Revenue</h3>
-<div id="revenue">₹0</div>
-</div>
-
-<div class="card">
-<h3>Pending Amount</h3>
-<div id="pending">₹0</div>
-</div>
-
-<div class="card">
-<h3>This Year</h3>
-<div id="yearBookings">0</div>
-</div>
-
-</div>
-
-<div class="form">
-
-<h3>➕ New Booking</h3>
-
-<input id="customer" placeholder="Customer Name">
-
-<input id="mobile" placeholder="WhatsApp Number">
-
-<select id="eventType">
-<option>Marriage</option>
-<option>Engagement</option>
-<option>Birthday</option>
-<option>Corporate Gathering</option>
-<option>Meeting</option>
-</select>
-
-<input type="date" id="eventDate">
-
-<input type="number" id="totalAmount" placeholder="Total Amount">
-
-<input type="number" id="advancePaid" placeholder="Advance Paid">
-
-<button onclick="saveBooking()">Save Booking</button>
-
-</div>
-
-<input
-class="search"
-id="search"
-placeholder="🔍 Search Customer"
-onkeyup="render()">
-
-<div id="bookingList"></div>
-
-</div>
-
-<script>
-
-let bookings=
-JSON.parse(
-localStorage.getItem("bookings") || "[]"
-);
-
-function saveBooking(){
-
-let total=
-Number(
-document.getElementById("totalAmount").value||0
-);
-
-let advance=
-Number(
-document.getElementById("advancePaid").value||0
-);
-
-let booking={
-
-id:
-"BK-"+new Date().getFullYear()+"-"+
-String(bookings.length+1).padStart(3,"0"),
-
-customer:
-document.getElementById("customer").value,
-
-mobile:
-document.getElementById("mobile").value,
-
-eventType:
-document.getElementById("eventType").value,
-
-eventDate:
-document.getElementById("eventDate").value,
-
-totalAmount:total,
-advancePaid:advance,
-balance:total-advance
-
-};
-
-bookings.push(booking);
-
-localStorage.setItem(
-"bookings",
-JSON.stringify(bookings)
-);
-
-render();
-
-alert("Booking Saved\n"+booking.id);
-
-}
-
-function deleteBooking(id){
-
-if(!confirm("Delete booking?"))
-return;
-
-bookings=
-bookings.filter(
-x=>x.id!==id
-);
-
-localStorage.setItem(
-"bookings",
-JSON.stringify(bookings)
-);
-
-render();
-
-}
-
-function whatsapp(id){
-
-let b=
-bookings.find(
-x=>x.id===id
-);
-
-let msg=
-`✅ Booking Confirmed
-
-Reference: ${b.id}
-
-Customer: ${b.customer}
-
-Event: ${b.eventType}
-
-Date: ${b.eventDate}
-
-Total Amount: ₹${b.totalAmount}
-
-Advance Paid: ₹${b.advancePaid}
-
-Balance Due: ₹${b.balance}
-
-ఇందుశ్రీ ఫంక్షన్ హాల్`;
-
-window.open(
-`https://wa.me/91${b.mobile}?text=${encodeURIComponent(msg)}`
-);
-
-}
-
-function render(){
-
-let txt=
-document.getElementById("search")
-?document.getElementById("search").value.toLowerCase()
-:"";
-
-let filtered=
-bookings.filter(
-x=>
-x.customer.toLowerCase().includes(txt)
-);
-
-document.getElementById(
-"totalBookings"
-).innerText=
-bookings.length;
-
-document.getElementById(
-"revenue"
-).innerText=
-"₹"+
-bookings.reduce(
-(a,b)=>a+b.totalAmount,
-0
-).toLocaleString();
-
-document.getElementById(
-"pending"
-).innerText=
-"₹"+
-bookings.reduce(
-(a,b)=>a+b.balance,
-0
-).toLocaleString();
-
-document.getElementById(
-"yearBookings"
-).innerText=
-bookings.length;
-
-let html="";
-
-filtered.reverse().forEach(b=>{
-
-html+=`
-<div class="booking">
-
-<b>${b.id}</b><br><br>
-
-👤 ${b.customer}<br>
-📱 ${b.mobile}<br>
-🎉 ${b.eventType}<br>
-📅 ${b.eventDate}<br>
-
-💰 Total : ₹${b.totalAmount}<br>
-
-✅ Advance : ₹${b.advancePaid}<br>
-
-🟠 Balance : ₹${b.balance}<br><br>
-
-<button
-class="smallbtn"
-onclick="whatsapp('${b.id}')">
-WhatsApp
-</button>
-
-<button
-style="background:red"
-class="smallbtn"
-onclick="deleteBooking('${b.id}')">
-Delete
-</button>
-
-</div>
-`;
-});
-
-document.getElementById(
-"bookingList"
-).innerHTML=html;
-
-}
-
-render();
-
-</script>
+<header class="hero">
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="logo" href="#top">Varnika</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero-grid" id="top">
+      <div>
+        <h1>Every idea needs its colours.</h1>
+        <p>Varnika designs illustrations, patterns and brand identities for people who want to look like nobody else.</p>
+        <a class="btn" href="#work">See the work</a>
+        <a class="btn ghost" href="#contact">Say hello</a>
+      </div>
+
+      <!-- Hero graphic: layered petal mandala -->
+      <svg class="mandala" viewBox="-200 -200 400 400" role="img" aria-label="Decorative circular pattern of overlapping petals in marigold, magenta, teal and violet">
+        <defs>
+          <path id="petalL" d="M0 0C-38 -50 -30 -120 0 -170C30 -120 38 -50 0 0Z"/>
+          <path id="petalS" d="M0 0C-22 -30 -18 -70 0 -100C18 -70 22 -30 0 0Z"/>
+        </defs>
+        <circle r="190" fill="none" stroke="#6c4ee3" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+        <g fill="#6c4ee3" opacity=".9">
+          <use href="#petalL" transform="rotate(0)"/><use href="#petalL" transform="rotate(45)"/>
+          <use href="#petalL" transform="rotate(90)"/><use href="#petalL" transform="rotate(135)"/>
+          <use href="#petalL" transform="rotate(180)"/><use href="#petalL" transform="rotate(225)"/>
+          <use href="#petalL" transform="rotate(270)"/><use href="#petalL" transform="rotate(315)"/>
+        </g>
+        <g fill="#d6336c" opacity=".92">
+          <use href="#petalL" transform="rotate(22.5) scale(.82)"/><use href="#petalL" transform="rotate(67.5) scale(.82)"/>
+          <use href="#petalL" transform="rotate(112.5) scale(.82)"/><use href="#petalL" transform="rotate(157.5) scale(.82)"/>
+          <use href="#petalL" transform="rotate(202.5) scale(.82)"/><use href="#petalL" transform="rotate(247.5) scale(.82)"/>
+          <use href="#petalL" transform="rotate(292.5) scale(.82)"/><use href="#petalL" transform="rotate(337.5) scale(.82)"/>
+        </g>
+        <g fill="#12b5a6">
+          <use href="#petalS" transform="rotate(0)"/><use href="#petalS" transform="rotate(30)"/>
+          <use href="#petalS" transform="rotate(60)"/><use href="#petalS" transform="rotate(90)"/>
+          <use href="#petalS" transform="rotate(120)"/><use href="#petalS" transform="rotate(150)"/>
+          <use href="#petalS" transform="rotate(180)"/><use href="#petalS" transform="rotate(210)"/>
+          <use href="#petalS" transform="rotate(240)"/><use href="#petalS" transform="rotate(270)"/>
+          <use href="#petalS" transform="rotate(300)"/><use href="#petalS" transform="rotate(330)"/>
+        </g>
+        <circle r="34" fill="#f6a81c"/>
+        <circle r="18" fill="#1b1646"/>
+        <circle r="7" fill="#f6a81c"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="about">
+    <div class="wrap about">
+      <!-- About graphic: abstract portrait-style shapes -->
+      <svg viewBox="0 0 300 300" role="img" aria-label="Abstract illustration of overlapping colour shapes">
+        <rect width="300" height="300" rx="150" fill="#f6a81c"/>
+        <path d="M0 210C60 160 120 250 180 200S270 170 300 200V300H0Z" fill="#12b5a6"/>
+        <circle cx="105" cy="115" r="52" fill="#d6336c"/>
+        <circle cx="185" cy="95" r="34" fill="#6c4ee3"/>
+        <path d="M150 150l22 40h-44z" fill="#1b1646"/>
+        <circle cx="228" cy="170" r="12" fill="#fff"/>
+      </svg>
+      <div>
+        <h2>The name means "colour".</h2>
+        <p>Varnika comes from <em>varna</em>, the old word for colour. It is how the studio works: start with a palette, then let shape and pattern follow.</p>
+        <p>Projects range from book covers and packaging to textile prints and murals. Each one is drawn by hand first, then refined on screen.</p>
+        <div class="palette" aria-label="Studio colours">
+          <i style="background:#1b1646"></i><i style="background:#6c4ee3"></i><i style="background:#d6336c"></i><i style="background:#f6a81c"></i><i style="background:#12b5a6"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" style="padding-top:0">
+    <div class="wrap">
+      <h2>Selected work</h2>
+      <div class="work-grid">
+
+        <article class="card">
+          <svg viewBox="0 0 300 220" role="img" aria-label="Wave pattern artwork">
+            <rect width="300" height="220" fill="#12b5a6"/>
+            <g fill="none" stroke-width="10" stroke-linecap="round">
+              <path d="M-10 50Q40 10 90 50T190 50T310 50" stroke="#1b1646"/>
+              <path d="M-10 90Q40 50 90 90T190 90T310 90" stroke="#f7f5ff"/>
+              <path d="M-10 130Q40 90 90 130T190 130T310 130" stroke="#f6a81c"/>
+              <path d="M-10 170Q40 130 90 170T190 170T310 170" stroke="#d6336c"/>
+            </g>
+          </svg>
+          <div><h3>Tidewater</h3><p>A textile print inspired by monsoon rain on a harbour.</p></div>
+        </article>
+
+        <article class="card">
+          <svg viewBox="0 0 300 220" role="img" aria-label="Geometric sun and hills artwork">
+            <rect width="300" height="220" fill="#d6336c"/>
+            <circle cx="150" cy="110" r="70" fill="#f6a81c"/>
+            <circle cx="150" cy="110" r="42" fill="#d6336c"/>
+            <circle cx="150" cy="110" r="20" fill="#f7f5ff"/>
+            <path d="M0 220V170L70 140L130 175L200 130L300 180V220Z" fill="#1b1646"/>
+          </svg>
+          <div><h3>Suryodaya</h3><p>Packaging for a small-batch spice brand, built from concentric suns.</p></div>
+        </article>
+
+        <article class="card">
+          <svg viewBox="0 0 300 220" role="img" aria-label="Grid of coloured tiles artwork">
+            <rect width="300" height="220" fill="#f7f5ff"/>
+            <g>
+              <rect x="20" y="20" width="80" height="80" rx="40" fill="#6c4ee3"/>
+              <rect x="110" y="20" width="80" height="80" fill="#f6a81c"/>
+              <path d="M200 100V20a80 80 0 0 1 80 80Z" fill="#12b5a6"/>
+              <path d="M20 200V120h80a80 80 0 0 1-80 80Z" fill="#d6336c"/>
+              <rect x="110" y="120" width="80" height="80" rx="40" fill="#1b1646"/>
+              <rect x="200" y="120" width="80" height="80" fill="#6c4ee3"/>
+              <circle cx="240" cy="160" r="22" fill="#f7f5ff"/>
+            </g>
+          </svg>
+          <div><h3>Tile Alphabet</h3><p>A set of 26 geometric letters for a children's learning app.</p></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact">
+        <h2>Have a project in mind?</h2>
+        <p>Tell Varnika what you are making and when you need it. Replies come within two working days.</p>
+        <a class="btn" href="mailto:hello@varnika.example">Email Varnika</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Varnika. All rights reserved.</footer>
 
 </body>
 </html>
