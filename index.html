@@ -7,54 +7,94 @@
 
 <style>
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f5f5f5;
+margin:0;
+font-family:Segoe UI,sans-serif;
+background:#f4f5f7;
 }
+
 .header{
-    background:#5f259f;
-    color:white;
-    padding:15px;
-    text-align:center;
-    font-size:22px;
-    font-weight:bold;
+background:#5F259F;
+color:white;
+padding:15px;
+font-size:24px;
+font-weight:bold;
+text-align:center;
 }
+
 .container{
-    padding:15px;
+padding:12px;
 }
+
+.cards{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-bottom:15px;
+}
+
 .card{
-    background:white;
-    padding:15px;
-    border-radius:15px;
-    margin-bottom:15px;
-    box-shadow:0 2px 5px rgba(0,0,0,.1);
+background:white;
+padding:15px;
+border-radius:15px;
+box-shadow:0 2px 8px rgba(0,0,0,.1);
 }
-.stat{
-    font-size:28px;
-    color:#5f259f;
-    font-weight:bold;
+
+.card h3{
+margin:0;
+font-size:14px;
+color:#555;
 }
+
+.card div{
+font-size:22px;
+font-weight:bold;
+color:#5F259F;
+margin-top:8px;
+}
+
+.form{
+background:white;
+padding:15px;
+border-radius:15px;
+margin-bottom:15px;
+}
+
 input,select{
-    width:100%;
-    padding:10px;
-    margin-top:5px;
-    margin-bottom:10px;
-    border-radius:8px;
-    border:1px solid #ccc;
-    box-sizing:border-box;
+width:100%;
+padding:10px;
+margin-bottom:10px;
+border-radius:8px;
+border:1px solid #ccc;
+box-sizing:border-box;
 }
+
 button{
-    width:100%;
-    background:#5f259f;
-    color:white;
-    border:none;
-    padding:12px;
-    border-radius:10px;
-    font-size:16px;
+background:#5F259F;
+color:white;
+border:none;
+padding:10px;
+border-radius:8px;
+width:100%;
+font-size:15px;
 }
+
 .booking{
-    padding:10px;
-    border-bottom:1px solid #ddd;
+background:white;
+padding:12px;
+margin-top:10px;
+border-radius:12px;
+box-shadow:0 2px 6px rgba(0,0,0,.08);
+}
+
+.smallbtn{
+width:auto;
+padding:6px 10px;
+margin-top:8px;
+margin-right:5px;
+}
+
+.search{
+margin-bottom:15px;
 }
 </style>
 </head>
@@ -67,17 +107,37 @@ button{
 
 <div class="container">
 
+<div class="cards">
+
 <div class="card">
 <h3>Total Bookings</h3>
-<div class="stat" id="bookingCount">0</div>
+<div id="totalBookings">0</div>
 </div>
 
 <div class="card">
-<h3>New Booking</h3>
+<h3>Total Revenue</h3>
+<div id="revenue">₹0</div>
+</div>
+
+<div class="card">
+<h3>Pending Amount</h3>
+<div id="pending">₹0</div>
+</div>
+
+<div class="card">
+<h3>This Year</h3>
+<div id="yearBookings">0</div>
+</div>
+
+</div>
+
+<div class="form">
+
+<h3>➕ New Booking</h3>
 
 <input id="customer" placeholder="Customer Name">
 
-<input id="phone" placeholder="WhatsApp Number">
+<input id="mobile" placeholder="WhatsApp Number">
 
 <select id="eventType">
 <option>Marriage</option>
@@ -87,41 +147,56 @@ button{
 <option>Meeting</option>
 </select>
 
-<input id="eventDate" type="date">
+<input type="date" id="eventDate">
 
-<input id="totalAmount" type="number" placeholder="Total Amount">
+<input type="number" id="totalAmount" placeholder="Total Amount">
 
-<input id="advancePaid" type="number" placeholder="Advance Paid">
+<input type="number" id="advancePaid" placeholder="Advance Paid">
 
 <button onclick="saveBooking()">Save Booking</button>
 
 </div>
 
-<div class="card">
-<h3>Bookings</h3>
-<div id="bookings"></div>
-</div>
+<input
+class="search"
+id="search"
+placeholder="🔍 Search Customer"
+onkeyup="render()">
+
+<div id="bookingList"></div>
 
 </div>
 
 <script>
 
-let bookings =
-JSON.parse(localStorage.getItem("bookings") || "[]");
-
-render();
+let bookings=
+JSON.parse(
+localStorage.getItem("bookings") || "[]"
+);
 
 function saveBooking(){
 
+let total=
+Number(
+document.getElementById("totalAmount").value||0
+);
+
+let advance=
+Number(
+document.getElementById("advancePaid").value||0
+);
+
 let booking={
 
-id:"BK-"+new Date().getFullYear()+"-"+String(bookings.length+1).padStart(3,'0'),
+id:
+"BK-"+new Date().getFullYear()+"-"+
+String(bookings.length+1).padStart(3,"0"),
 
 customer:
 document.getElementById("customer").value,
 
-phone:
-document.getElementById("phone").value,
+mobile:
+document.getElementById("mobile").value,
 
 eventType:
 document.getElementById("eventType").value,
@@ -129,11 +204,9 @@ document.getElementById("eventType").value,
 eventDate:
 document.getElementById("eventDate").value,
 
-totalAmount:
-document.getElementById("totalAmount").value,
-
-advancePaid:
-document.getElementById("advancePaid").value
+totalAmount:total,
+advancePaid:advance,
+balance:total-advance
 
 };
 
@@ -146,41 +219,146 @@ JSON.stringify(bookings)
 
 render();
 
-alert(
-"Booking Saved\n" +
-booking.id
+alert("Booking Saved\n"+booking.id);
+
+}
+
+function deleteBooking(id){
+
+if(!confirm("Delete booking?"))
+return;
+
+bookings=
+bookings.filter(
+x=>x.id!==id
+);
+
+localStorage.setItem(
+"bookings",
+JSON.stringify(bookings)
+);
+
+render();
+
+}
+
+function whatsapp(id){
+
+let b=
+bookings.find(
+x=>x.id===id
+);
+
+let msg=
+`✅ Booking Confirmed
+
+Reference: ${b.id}
+
+Customer: ${b.customer}
+
+Event: ${b.eventType}
+
+Date: ${b.eventDate}
+
+Total Amount: ₹${b.totalAmount}
+
+Advance Paid: ₹${b.advancePaid}
+
+Balance Due: ₹${b.balance}
+
+ఇందుశ్రీ ఫంక్షన్ హాల్`;
+
+window.open(
+`https://wa.me/91${b.mobile}?text=${encodeURIComponent(msg)}`
 );
 
 }
 
 function render(){
 
-document.getElementById("bookingCount").innerHTML=
+let txt=
+document.getElementById("search")
+?document.getElementById("search").value.toLowerCase()
+:"";
+
+let filtered=
+bookings.filter(
+x=>
+x.customer.toLowerCase().includes(txt)
+);
+
+document.getElementById(
+"totalBookings"
+).innerText=
+bookings.length;
+
+document.getElementById(
+"revenue"
+).innerText=
+"₹"+
+bookings.reduce(
+(a,b)=>a+b.totalAmount,
+0
+).toLocaleString();
+
+document.getElementById(
+"pending"
+).innerText=
+"₹"+
+bookings.reduce(
+(a,b)=>a+b.balance,
+0
+).toLocaleString();
+
+document.getElementById(
+"yearBookings"
+).innerText=
 bookings.length;
 
 let html="";
 
-bookings.forEach(function(b){
+filtered.reverse().forEach(b=>{
 
-let balance=
-(Number(b.totalAmount||0))-
-(Number(b.advancePaid||0));
+html+=`
+<div class="booking">
 
-html +=
-'<div class="booking">' +
-'<b>'+b.id+'</b><br>' +
-b.customer + '<br>' +
-b.eventType + '<br>' +
-'₹'+b.totalAmount +
-' | Due ₹'+balance +
-'</div>';
+<b>${b.id}</b><br><br>
 
+👤 ${b.customer}<br>
+📱 ${b.mobile}<br>
+🎉 ${b.eventType}<br>
+📅 ${b.eventDate}<br>
+
+💰 Total : ₹${b.totalAmount}<br>
+
+✅ Advance : ₹${b.advancePaid}<br>
+
+🟠 Balance : ₹${b.balance}<br><br>
+
+<button
+class="smallbtn"
+onclick="whatsapp('${b.id}')">
+WhatsApp
+</button>
+
+<button
+style="background:red"
+class="smallbtn"
+onclick="deleteBooking('${b.id}')">
+Delete
+</button>
+
+</div>
+`;
 });
 
-document.getElementById("bookings").innerHTML=
-html;
+document.getElementById(
+"bookingList"
+).innerHTML=html;
 
 }
+
+render();
 
 </script>
 
