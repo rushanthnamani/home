@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0e1a2f; --navy2:#16294a; --mist:#f2f6fc; --azure:#3b74ff; --teal:#12c2b0; --amber:#ffb429; --coral:#ff5e78; --line:#d9e2f0;
+  --navy:#160a2b; --navy2:#2a1250; --mist:#fff1f7; --azure:#ff2e97; --teal:#19e3d0; --amber:#ffb02e; --coral:#ff6a3d; --line:#f0d3e3;
   --head:"Sora","Trebuchet MS",sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0}
@@ -27,8 +27,8 @@ section{padding:5rem 0}
 /* hero */
 .hero{background:var(--navy);color:#fff;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(circle at 85% 20%,rgba(59,116,255,.35),transparent 45%),
-  radial-gradient(circle at 10% 90%,rgba(18,194,176,.18),transparent 40%);}
+  radial-gradient(circle at 85% 20%,rgba(255,46,151,.35),transparent 45%),
+  radial-gradient(circle at 10% 90%,rgba(25,227,208,.18),transparent 40%);}
 .hero .wrap{position:relative}
 nav{display:flex;justify-content:space-between;align-items:center;padding:1.4rem 0}
 .mark{font-family:var(--head);font-weight:800;text-decoration:none;display:flex;gap:.6rem;align-items:center}
@@ -50,7 +50,7 @@ nav ul a:hover{opacity:1;text-decoration:underline;text-decoration-color:var(--a
 
 /* stats */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:-2.6rem;position:relative}
-.stat{background:#fff;border-radius:20px 20px 20px 4px;padding:1.2rem 1.3rem;box-shadow:0 12px 30px rgba(14,26,47,.12)}
+.stat{background:#fff;border-radius:20px 20px 20px 4px;padding:1.2rem 1.3rem;box-shadow:0 12px 30px rgba(60,10,70,.12)}
 .stat strong{display:block;font-family:var(--head);font-size:2rem}
 .stat span{font-size:.9rem;opacity:.75}
 
@@ -66,7 +66,7 @@ nav ul a:hover{opacity:1;text-decoration:underline;text-decoration-color:var(--a
 
 /* highlights */
 .hl{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.5rem}
-.card{background:#fff;border-radius:28px 28px 28px 6px;overflow:hidden;box-shadow:0 12px 30px rgba(14,26,47,.1)}
+.card{background:#fff;border-radius:28px 28px 28px 6px;overflow:hidden;box-shadow:0 12px 30px rgba(60,10,70,.1)}
 .card svg{display:block;width:100%;height:auto}
 .card div{padding:1.3rem 1.5rem 1.6rem}
 .card h3{font-size:1.25rem;margin-bottom:.4rem}
@@ -87,16 +87,35 @@ nav ul a:hover{opacity:1;text-decoration:underline;text-decoration-color:var(--a
 .more{font-size:.95rem;opacity:.8;max-width:80ch}
 
 /* contact */
-.contact{background:linear-gradient(135deg,var(--azure),#6a4cff 60%,var(--coral));color:#fff;border-radius:40px;padding:4rem 1.5rem;text-align:center;margin-bottom:4rem}
+.contact{background:linear-gradient(135deg,var(--azure),#a259ff 60%,var(--coral));color:#fff;border-radius:40px;padding:4rem 1.5rem;text-align:center;margin-bottom:4rem}
 .contact p{max-width:44ch;margin:.5rem auto 1.8rem}
 .contact .btn{background:#fff;margin:.3rem}
 footer{text-align:center;font-size:.9rem;opacity:.65;padding-bottom:2.5rem}
+
+/* neon sunset theme */
+.hero{background:linear-gradient(180deg,#160a2b 0%,#3a1170 50%,#8c1f7a 78%,#ff4f8b 100%);border-bottom:6px solid;border-image:linear-gradient(90deg,#ffe25a,#ff2e97,#19e3d0) 1}
+.hero .wrap{z-index:1}
+.hero-grid{padding-bottom:11rem}
+.scene{position:absolute;left:0;bottom:0;width:100%;height:52%;pointer-events:none}
+.scene [data-d]{transition:transform .2s ease-out}
+.sway{transform-box:fill-box;transform-origin:50% 100%;animation:sway 5s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-1.8deg)}to{transform:rotate(1.8deg)}}
+.lanes path{animation:lane 1.2s linear infinite}
+@keyframes lane{to{stroke-dashoffset:-40}}
+.car{animation:drive 16s linear infinite}
+@keyframes drive{from{transform:translateX(-300px)}to{transform:translateX(1500px)}}
+.neon{background:linear-gradient(90deg,#ffe25a,#ff8a3d,#ff2e97);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 14px rgba(255,46,151,.55))}
+main{counter-reset:m}
+section .wrap>h2{counter-increment:m}
+section .wrap>h2::before{content:"MISSION 0" counter(m);display:block;font:500 .75rem var(--body);letter-spacing:.28em;color:var(--azure);margin-bottom:.5rem}
+.card,.stat{box-shadow:0 12px 30px rgba(255,46,151,.22)}
+@media (prefers-reduced-motion:reduce){.sway,.lanes path{animation:none}.car{animation:none;transform:translateX(520px)}}
 
 /* cursor animations */
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(280px circle at var(--mx,72%) var(--my,28%),rgba(255,180,41,.2),transparent 70%)}
 .flow{transition:transform .2s ease-out;will-change:transform}
 .tilt{transition:transform .18s ease-out,box-shadow .18s;will-change:transform}
-.tilt:hover{box-shadow:0 22px 44px rgba(14,26,47,.2)}
+.tilt:hover{box-shadow:0 22px 44px rgba(60,10,70,.2)}
 .btn{transition:transform .2s ease-out,background .2s}
 .ring{position:fixed;top:0;left:0;width:36px;height:36px;border:2px solid var(--amber);border-radius:50%;pointer-events:none;z-index:99;opacity:0;transition:width .2s,height .2s,background .2s,opacity .3s}
 .ring.big{width:64px;height:64px;background:rgba(255,180,41,.18)}
@@ -110,6 +129,62 @@ footer{text-align:center;font-size:.9rem;opacity:.65;padding-bottom:2.5rem}
 <body>
 
 <header class="hero">
+  <!-- Neon sunset scene: sun, skyline, palms, road and a driving car -->
+  <svg class="scene" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sunG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe25a"/><stop offset=".55" stop-color="#ff8a3d"/><stop offset="1" stop-color="#ff2e97"/></linearGradient>
+      <mask id="stripes"><rect width="1200" height="420" fill="#fff"/><rect x="400" y="258" width="400" height="5" fill="#000"/><rect x="400" y="278" width="400" height="8" fill="#000"/><rect x="400" y="300" width="400" height="12" fill="#000"/></mask>
+      <linearGradient id="roadG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1250"/><stop offset="1" stop-color="#160a2b"/></linearGradient>
+      <pattern id="bld" width="14" height="16" patternUnits="userSpaceOnUse"><rect width="14" height="16" fill="#1d0b3a"/><rect x="3" y="4" width="4" height="5" fill="#ffb02e" opacity=".55"/><rect x="9" y="10" width="3" height="4" fill="#19e3d0" opacity=".45"/></pattern>
+      <path id="fr" d="M0 0C25 -38 75 -42 120 -8C80 -26 35 -22 0 0Z"/>
+      <g id="palm">
+        <path d="M0 0C6 -60 -4 -120 8 -190" stroke="#0d0518" stroke-width="9" fill="none" stroke-linecap="round"/>
+        <g transform="translate(8 -190)" fill="#0d0518">
+          <use href="#fr"/><use href="#fr" transform="scale(-1 1)"/>
+          <use href="#fr" transform="rotate(-38)"/><use href="#fr" transform="rotate(-38) scale(-1 1)"/>
+          <use href="#fr" transform="rotate(32)"/><use href="#fr" transform="rotate(32) scale(-1 1)"/>
+        </g>
+      </g>
+    </defs>
+
+    <g data-d="6">
+      <circle cx="600" cy="255" r="200" fill="#ff2e97" opacity=".22"/>
+      <circle cx="600" cy="255" r="150" fill="url(#sunG)" mask="url(#stripes)"/>
+    </g>
+
+    <g data-d="10" fill="url(#bld)" stroke="#ff2e97" stroke-width="1.5">
+      <rect x="60" y="230" width="50" height="82"/><rect x="115" y="200" width="40" height="112"/><rect x="160" y="250" width="60" height="62"/>
+      <rect x="225" y="215" width="45" height="97"/><rect x="275" y="165" width="38" height="147"/><rect x="320" y="240" width="55" height="72"/>
+      <rect x="380" y="225" width="40" height="87"/><rect x="790" y="230" width="45" height="82"/><rect x="840" y="185" width="40" height="127"/>
+      <rect x="885" y="245" width="60" height="67"/><rect x="950" y="205" width="45" height="107"/><rect x="1000" y="155" width="36" height="157"/>
+      <rect x="1040" y="235" width="55" height="77"/><rect x="1100" y="215" width="45" height="97"/><rect x="1150" y="250" width="60" height="62"/>
+      <rect x="-20" y="255" width="75" height="57"/>
+    </g>
+
+    <rect y="310" width="1200" height="110" fill="url(#roadG)"/>
+    <g stroke="#ff2e97" stroke-opacity=".5" stroke-width="2"><path d="M0 324H1200M0 344H1200M0 370H1200M0 402H1200"/></g>
+    <g class="lanes" stroke="#ff2e97" stroke-width="2.5" stroke-dasharray="8 12" fill="none">
+      <path d="M600 310L-1000 420"/><path d="M600 310L-500 420"/><path d="M600 310L-100 420"/><path d="M600 310L200 420"/>
+      <path d="M600 310L420 420"/><path d="M600 310L600 420" stroke="#ffe25a"/><path d="M600 310L780 420"/>
+      <path d="M600 310L1000 420"/><path d="M600 310L1300 420"/><path d="M600 310L1700 420"/><path d="M600 310L2200 420"/>
+    </g>
+    <line x1="0" x2="1200" y1="310" y2="310" stroke="#19e3d0" stroke-width="3"/>
+
+    <g data-d="18">
+      <g class="sway"><use href="#palm" transform="translate(110 335) scale(1.15)"/></g>
+      <g class="sway" style="animation-delay:-2s"><use href="#palm" transform="translate(1100 335) scale(-1.25 1.25)"/></g>
+      <g class="sway" style="animation-delay:-3.5s"><use href="#palm" transform="translate(230 330) scale(.7)"/></g>
+    </g>
+
+    <g class="car"><g transform="translate(0 352)">
+      <path d="M146 20L270 4V38Z" fill="#ffe25a" opacity=".16"/>
+      <ellipse cx="72" cy="40" rx="86" ry="7" fill="#ff2e97" opacity=".5"/>
+      <path d="M0 32L8 16C12 9 24 7 38 7H62L82 -6C92 -11 106 -10 114 -3L130 13C138 15 146 21 146 32Z" fill="#0d0518" stroke="#19e3d0" stroke-width="2"/>
+      <path d="M72 0L86 -5H106L118 8H72Z" fill="#ff8a3d" opacity=".85"/>
+      <circle cx="34" cy="32" r="12" fill="#0d0518" stroke="#ffb02e" stroke-width="3"/><circle cx="112" cy="32" r="12" fill="#0d0518" stroke="#ffb02e" stroke-width="3"/>
+      <rect x="-3" y="18" width="9" height="4" fill="#ff2e97"/><rect x="140" y="19" width="9" height="4" fill="#ffe25a"/>
+    </g></g>
+  </svg>
   <div class="wrap">
     <nav aria-label="Main">
       <a class="mark" href="#top"><b>RN</b>Rushanth Namani</a>
@@ -123,7 +198,7 @@ footer{text-align:center;font-size:.9rem;opacity:.65;padding-bottom:2.5rem}
 
     <div class="hero-grid" id="top">
       <div>
-        <h1>Moving whole companies into Microsoft 365.</h1>
+        <h1>Moving whole companies into <span class="neon">Microsoft 365.</span></h1>
         <p class="role">Senior M365 Consultant · Hyderabad, India</p>
         <p class="sum">Eight years across Exchange Online, SharePoint, Teams and Copilot. I lead Google Workspace to Microsoft 365 migrations and build Copilot Studio agents that cut service desk load.</p>
         <a class="btn" href="#contact">Get in touch</a>
@@ -133,7 +208,7 @@ footer{text-align:center;font-size:.9rem;opacity:.65;padding-bottom:2.5rem}
       <!-- Hero graphic: migration pipeline -->
       <svg class="flow" viewBox="0 0 520 440" role="img" aria-label="Diagram showing data flowing from Google Workspace through a migration hub into Exchange, SharePoint, OneDrive, Teams and Copilot">
         <defs>
-          <linearGradient id="hub" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b74ff"/><stop offset="1" stop-color="#12c2b0"/></linearGradient>
+          <linearGradient id="hub" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff2e97"/><stop offset="1" stop-color="#19e3d0"/></linearGradient>
         </defs>
         <g fill="none" stroke="#2c4572" stroke-width="2" stroke-dasharray="4 6">
           <path d="M120 222H206"/>
@@ -145,30 +220,30 @@ footer{text-align:center;font-size:.9rem;opacity:.65;padding-bottom:2.5rem}
         </g>
         <!-- moving data packets -->
         <g id="dots">
-          <circle r="5" fill="#ffb429"><animateMotion dur="2s" repeatCount="indefinite" path="M120 222H206"/></circle>
-          <circle r="5" fill="#ffb429"><animateMotion dur="2s" begin="1s" repeatCount="indefinite" path="M120 222H206"/></circle>
-          <circle r="4.5" fill="#12c2b0"><animateMotion dur="2.4s" repeatCount="indefinite" path="M294 222C340 222 340 62 380 62"/></circle>
-          <circle r="4.5" fill="#12c2b0"><animateMotion dur="2.4s" begin=".5s" repeatCount="indefinite" path="M294 222C335 222 340 142 380 142"/></circle>
-          <circle r="4.5" fill="#12c2b0"><animateMotion dur="2.4s" begin="1s" repeatCount="indefinite" path="M294 222H380"/></circle>
-          <circle r="4.5" fill="#12c2b0"><animateMotion dur="2.4s" begin="1.5s" repeatCount="indefinite" path="M294 222C335 222 340 302 380 302"/></circle>
-          <circle r="4.5" fill="#12c2b0"><animateMotion dur="2.4s" begin="2s" repeatCount="indefinite" path="M294 222C340 222 340 382 380 382"/></circle>
+          <circle r="5" fill="#ffb02e"><animateMotion dur="2s" repeatCount="indefinite" path="M120 222H206"/></circle>
+          <circle r="5" fill="#ffb02e"><animateMotion dur="2s" begin="1s" repeatCount="indefinite" path="M120 222H206"/></circle>
+          <circle r="4.5" fill="#19e3d0"><animateMotion dur="2.4s" repeatCount="indefinite" path="M294 222C340 222 340 62 380 62"/></circle>
+          <circle r="4.5" fill="#19e3d0"><animateMotion dur="2.4s" begin=".5s" repeatCount="indefinite" path="M294 222C335 222 340 142 380 142"/></circle>
+          <circle r="4.5" fill="#19e3d0"><animateMotion dur="2.4s" begin="1s" repeatCount="indefinite" path="M294 222H380"/></circle>
+          <circle r="4.5" fill="#19e3d0"><animateMotion dur="2.4s" begin="1.5s" repeatCount="indefinite" path="M294 222C335 222 340 302 380 302"/></circle>
+          <circle r="4.5" fill="#19e3d0"><animateMotion dur="2.4s" begin="2s" repeatCount="indefinite" path="M294 222C340 222 340 382 380 382"/></circle>
         </g>
         <!-- source -->
-        <rect x="10" y="190" width="110" height="64" rx="16" fill="#16294a" stroke="#ff5e78" stroke-width="2"/>
+        <rect x="10" y="190" width="110" height="64" rx="16" fill="#2a1250" stroke="#ff6a3d" stroke-width="2"/>
         <text x="65" y="218" text-anchor="middle">Google</text>
         <text x="65" y="236" text-anchor="middle">Workspace</text>
         <!-- hub -->
-        <circle cx="250" cy="222" r="56" fill="none" stroke="#3b74ff" stroke-opacity=".35" stroke-width="2"/>
+        <circle cx="250" cy="222" r="56" fill="none" stroke="#ff2e97" stroke-opacity=".35" stroke-width="2"/>
         <circle cx="250" cy="222" r="44" fill="url(#hub)"/>
         <text x="250" y="219" text-anchor="middle" style="font-weight:500">Migrate</text>
         <text x="250" y="236" text-anchor="middle" class="sm" style="fill:#fff;opacity:.85">DryvIQ · Cloudiway</text>
         <!-- targets -->
         <g>
-          <rect x="380" y="40" width="130" height="44" rx="14" fill="#16294a" stroke="#3b74ff" stroke-width="2"/><text x="445" y="67" text-anchor="middle">Exchange Online</text>
-          <rect x="380" y="120" width="130" height="44" rx="14" fill="#16294a" stroke="#12c2b0" stroke-width="2"/><text x="445" y="147" text-anchor="middle">SharePoint</text>
-          <rect x="380" y="200" width="130" height="44" rx="14" fill="#16294a" stroke="#ffb429" stroke-width="2"/><text x="445" y="227" text-anchor="middle">OneDrive</text>
-          <rect x="380" y="280" width="130" height="44" rx="14" fill="#16294a" stroke="#6a4cff" stroke-width="2"/><text x="445" y="307" text-anchor="middle">Teams</text>
-          <rect x="380" y="360" width="130" height="44" rx="14" fill="#16294a" stroke="#ff5e78" stroke-width="2"/><text x="445" y="387" text-anchor="middle">Copilot</text>
+          <rect x="380" y="40" width="130" height="44" rx="14" fill="#2a1250" stroke="#ff2e97" stroke-width="2"/><text x="445" y="67" text-anchor="middle">Exchange Online</text>
+          <rect x="380" y="120" width="130" height="44" rx="14" fill="#2a1250" stroke="#19e3d0" stroke-width="2"/><text x="445" y="147" text-anchor="middle">SharePoint</text>
+          <rect x="380" y="200" width="130" height="44" rx="14" fill="#2a1250" stroke="#ffb02e" stroke-width="2"/><text x="445" y="227" text-anchor="middle">OneDrive</text>
+          <rect x="380" y="280" width="130" height="44" rx="14" fill="#2a1250" stroke="#a259ff" stroke-width="2"/><text x="445" y="307" text-anchor="middle">Teams</text>
+          <rect x="380" y="360" width="130" height="44" rx="14" fill="#2a1250" stroke="#ff6a3d" stroke-width="2"/><text x="445" y="387" text-anchor="middle">Copilot</text>
         </g>
         <text x="65" y="290" text-anchor="middle" class="sm">Source tenant</text>
         <text x="445" y="428" text-anchor="middle" class="sm">Microsoft 365 tenant</text>
@@ -227,7 +302,7 @@ footer{text-align:center;font-size:.9rem;opacity:.65;padding-bottom:2.5rem}
             <li>Wrote PowerShell and batch scripts that automated repetitive admin tasks.</li>
           </ul>
         </div>
-        <div class="job" style="--c:#6a4cff">
+        <div class="job" style="--c:#a259ff">
           <h3>Earlier roles</h3>
           <div class="meta">2018 – 2021</div>
           <span class="tag">Technical Coordinator · Platinus Technologies</span>
@@ -246,32 +321,32 @@ footer{text-align:center;font-size:.9rem;opacity:.65;padding-bottom:2.5rem}
 
         <article class="card">
           <svg viewBox="0 0 320 190" role="img" aria-label="Two clouds connected by arrows">
-            <rect width="320" height="190" fill="#16294a"/>
-            <g fill="#ff5e78"><circle cx="70" cy="95" r="24"/><circle cx="98" cy="85" r="30"/><circle cx="126" cy="98" r="22"/><rect x="48" y="95" width="100" height="26" rx="13"/></g>
-            <g fill="#3b74ff"><circle cx="196" cy="95" r="24"/><circle cx="224" cy="85" r="30"/><circle cx="252" cy="98" r="22"/><rect x="174" y="95" width="100" height="26" rx="13"/></g>
-            <path d="M150 100h24m-8-8l8 8-8 8" fill="none" stroke="#ffb429" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect width="320" height="190" fill="#2a1250"/>
+            <g fill="#ff6a3d"><circle cx="70" cy="95" r="24"/><circle cx="98" cy="85" r="30"/><circle cx="126" cy="98" r="22"/><rect x="48" y="95" width="100" height="26" rx="13"/></g>
+            <g fill="#ff2e97"><circle cx="196" cy="95" r="24"/><circle cx="224" cy="85" r="30"/><circle cx="252" cy="98" r="22"/><rect x="174" y="95" width="100" height="26" rx="13"/></g>
+            <path d="M150 100h24m-8-8l8 8-8 8" fill="none" stroke="#ffb02e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <div><h3>Workspace to Microsoft 365</h3><p>Batch management, delta syncs and coexistence, with throttling and permissions tuned so data arrives complete.</p></div>
         </article>
 
         <article class="card">
           <svg viewBox="0 0 320 190" role="img" aria-label="Chat bubbles with a spark">
-            <rect width="320" height="190" fill="#12c2b0"/>
-            <rect x="40" y="35" width="170" height="60" rx="22" fill="#0e1a2f"/>
-            <rect x="60" y="55" width="90" height="8" rx="4" fill="#12c2b0"/><rect x="60" y="72" width="60" height="8" rx="4" fill="#3b74ff"/>
+            <rect width="320" height="190" fill="#19e3d0"/>
+            <rect x="40" y="35" width="170" height="60" rx="22" fill="#160a2b"/>
+            <rect x="60" y="55" width="90" height="8" rx="4" fill="#19e3d0"/><rect x="60" y="72" width="60" height="8" rx="4" fill="#ff2e97"/>
             <rect x="110" y="105" width="170" height="52" rx="22" fill="#fff"/>
-            <rect x="130" y="123" width="100" height="8" rx="4" fill="#0e1a2f"/><rect x="130" y="138" width="50" height="8" rx="4" fill="#ffb429"/>
-            <path d="M265 30l6 16 16 6-16 6-6 16-6-16-16-6 16-6z" fill="#ffb429"/>
+            <rect x="130" y="123" width="100" height="8" rx="4" fill="#160a2b"/><rect x="130" y="138" width="50" height="8" rx="4" fill="#ffb02e"/>
+            <path d="M265 30l6 16 16 6-16 6-6 16-6-16-16-6 16-6z" fill="#ffb02e"/>
           </svg>
           <div><h3>Copilot Studio agents</h3><p>Readiness, FAQ and knowledge agents built on runbooks and SOPs, with clear scope limits and human escalation.</p></div>
         </article>
 
         <article class="card">
           <svg viewBox="0 0 320 190" role="img" aria-label="Shield with a check mark">
-            <rect width="320" height="190" fill="#3b74ff"/>
-            <path d="M160 24l62 22v42c0 38-26 66-62 80-36-14-62-42-62-80V46z" fill="#0e1a2f"/>
-            <path d="M160 40l46 16v32c0 28-19 49-46 60-27-11-46-32-46-60V56z" fill="#16294a"/>
-            <path d="M138 96l16 16 30-34" fill="none" stroke="#ffb429" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect width="320" height="190" fill="#ff2e97"/>
+            <path d="M160 24l62 22v42c0 38-26 66-62 80-36-14-62-42-62-80V46z" fill="#160a2b"/>
+            <path d="M160 40l46 16v32c0 28-19 49-46 60-27-11-46-32-46-60V56z" fill="#2a1250"/>
+            <path d="M138 96l16 16 30-34" fill="none" stroke="#ffb02e" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <div><h3>Email security and compliance</h3><p>DLP policies, transport rules, spam filtering, encryption and Purview eDiscovery for enterprise tenants.</p></div>
         </article>
@@ -298,10 +373,10 @@ footer{text-align:center;font-size:.9rem;opacity:.65;padding-bottom:2.5rem}
       <h2>Certifications</h2>
       <p class="lead">Microsoft credentials plus training in AI and security.</p>
       <div class="certs">
-        <div class="cert"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3l18 7v13c0 11-8 19-18 22C14 42 6 34 6 23V10z" fill="#3b74ff"/><path d="M16 24l6 6 11-12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>MS-102</b><small>Microsoft 365 Administrator</small></div></div>
-        <div class="cert"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3l18 7v13c0 11-8 19-18 22C14 42 6 34 6 23V10z" fill="#12c2b0"/><path d="M16 24l6 6 11-12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>AZ-104</b><small>Azure Administrator Associate</small></div></div>
-        <div class="cert"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3l18 7v13c0 11-8 19-18 22C14 42 6 34 6 23V10z" fill="#ffb429"/><path d="M16 24l6 6 11-12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>AZ-900</b><small>Azure Fundamentals</small></div></div>
-        <div class="cert"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3l18 7v13c0 11-8 19-18 22C14 42 6 34 6 23V10z" fill="#ff5e78"/><path d="M16 24l6 6 11-12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>MS-900</b><small>Microsoft 365 Fundamentals</small></div></div>
+        <div class="cert"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3l18 7v13c0 11-8 19-18 22C14 42 6 34 6 23V10z" fill="#ff2e97"/><path d="M16 24l6 6 11-12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>MS-102</b><small>Microsoft 365 Administrator</small></div></div>
+        <div class="cert"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3l18 7v13c0 11-8 19-18 22C14 42 6 34 6 23V10z" fill="#19e3d0"/><path d="M16 24l6 6 11-12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>AZ-104</b><small>Azure Administrator Associate</small></div></div>
+        <div class="cert"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3l18 7v13c0 11-8 19-18 22C14 42 6 34 6 23V10z" fill="#ffb02e"/><path d="M16 24l6 6 11-12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>AZ-900</b><small>Azure Fundamentals</small></div></div>
+        <div class="cert"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3l18 7v13c0 11-8 19-18 22C14 42 6 34 6 23V10z" fill="#ff6a3d"/><path d="M16 24l6 6 11-12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>MS-900</b><small>Microsoft 365 Fundamentals</small></div></div>
       </div>
       <p class="more">Also: Generative AI Foundations (UpGrad), Prompt Design in Vertex AI (Google), AI for Business Leaders, Essentials of Ethical Hacking (EC-Council), WorkshopPLUS Exchange Online Troubleshooting, WorkshopPLUS Windows Advanced Troubleshooting. Education: B.Tech in Computer Science and Engineering, 2014–2020.</p>
     </div>
@@ -348,6 +423,13 @@ if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     var h = hero.getBoundingClientRect();
     hero.style.setProperty("--mx", (e.clientX - h.left) + "px");
     hero.style.setProperty("--my", (e.clientY - h.top) + "px");
+
+    // parallax: sun, skyline and palms shift at different depths
+    var mx = e.clientX / innerWidth - 0.5, my = e.clientY / innerHeight - 0.5;
+    document.querySelectorAll(".scene [data-d]").forEach(function (g) {
+      var d = +g.dataset.d;
+      g.style.transform = "translate(" + (-mx * d * 2) + "px," + (-my * d) + "px)";
+    });
 
     // tilt the migration diagram toward the cursor
     var f = flow.getBoundingClientRect();
